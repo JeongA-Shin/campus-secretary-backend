@@ -25,12 +25,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class CalendarService {
 
-  //어플리케이션 이름
-  //private final String APPLICATION_NAME = "Campus Secretary Project";
-  //instance of the JSON factory
-  //private final GsonFactory JSON_FACTORY= GsonFactory.getDefaultInstance();
-
-
   // Directory to store authorization tokens
   //여기서 말하는 토큰: api 접근으 위한 액세스 토큰 등
   //token.json 파일을 저장할 디렉토리
