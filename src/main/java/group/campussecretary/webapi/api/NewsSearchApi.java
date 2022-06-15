@@ -24,7 +24,7 @@ public class NewsSearchApi {
     private final NewsSearchService service;
 
     @SneakyThrows
-    @ApiOperation("목록 조회")
+    @ApiOperation("네이버 뉴스 검색")
     @GetMapping("/")
     public JSONObject getList(@RequestParam String query, @RequestParam Integer display){
         //네이버 공식 문서 참고 : query는 검색어, display는 검색 결과를 몇 개 받을 것인지
