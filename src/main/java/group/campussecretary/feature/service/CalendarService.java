@@ -26,9 +26,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class CalendarService {
 
   //어플리케이션 이름
-  private static final String APPLICATION_NAME = "Campus Secretary Project";
+  //private final String APPLICATION_NAME = "Campus Secretary Project";
   //instance of the JSON factory
-  private static final GsonFactory JSON_FACTORY= GsonFactory.getDefaultInstance();
+  //private final GsonFactory JSON_FACTORY= GsonFactory.getDefaultInstance();
+
+
   // Directory to store authorization tokens
   //여기서 말하는 토큰: api 접근으 위한 액세스 토큰 등
   //token.json 파일을 저장할 디렉토리
@@ -41,7 +43,7 @@ public class CalendarService {
 
   //어차피 구글 일정 조회만 나오면 되니까 조회 api만 있으면 됨
 
-  public Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT)
+  public Credential getCredentials( String APPLICATION_NAME,GsonFactory JSON_FACTORY, final NetHttpTransport HTTP_TRANSPORT)
       throws IOException {
 
     //LOAD CLIENT SECRET

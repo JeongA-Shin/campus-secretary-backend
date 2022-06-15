@@ -39,7 +39,7 @@ public class CalendarServiceTest {
   public void sandbox3() throws GeneralSecurityException, IOException {
 
     CalendarService service=new CalendarService();
-    service.getCredentials(GoogleNetHttpTransport.newTrustedTransport());
+    //service.getCredentials(GoogleNetHttpTransport.newTrustedTransport());
 
   }
 
