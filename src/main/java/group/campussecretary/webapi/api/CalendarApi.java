@@ -74,9 +74,9 @@ public class CalendarApi {
 
     JSONObject result ;
     if(responseMessageMap.isEmpty()){ //일정이 있다면
-      result=new JSONObject( calendarEventsMap);
+      result=new JSONObject( calendarEventsMap); // 일정을 반환해줌
     }else{
-      result=new JSONObject(responseMessageMap);
+      result=new JSONObject(responseMessageMap); //없다는 메세지를 반환
     }
     return result;
   }
