@@ -42,7 +42,6 @@ public class CalendarService {
 
 
   //어차피 구글 일정 조회만 나오면 되니까 조회 api만 있으면 됨
-
   public Credential getCredentials( String APPLICATION_NAME,GsonFactory JSON_FACTORY, final NetHttpTransport HTTP_TRANSPORT)
       throws IOException {
 
@@ -65,7 +64,7 @@ public class CalendarService {
         .setAccessType("offline")
         .build();
 
-    LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8080).build();
+    LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
     Credential credential = new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
 
 
