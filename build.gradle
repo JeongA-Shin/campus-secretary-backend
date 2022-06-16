@@ -26,8 +26,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
 
-    // slf4j for logging
-    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha6'
+    // slf4j for logging - 원래는 alpha 어쩌고 버전을 사용했는데,
+    // Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. 에러가 나서 버전을 낮춰줌
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 
     //swagger
     implementation 'io.springfox:springfox-swagger2:2.9.2'
