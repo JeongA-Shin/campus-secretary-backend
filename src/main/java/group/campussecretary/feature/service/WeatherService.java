@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class WeatherService{
 
   //기상청 API URL
-  private final StringBuilder apiUrl = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst");
+  private final StringBuilder apiUrl = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst");
   private final String apiKey="StHx15%2FPZFKIJvR5AtCu8uyowAtnEYHpAXR%2B5XYYN6OWDt%2BCz15z%2Fxn%2FDiV%2FLN9%2BY5YSPZUPUnCq982CiBupmw%3D%3D";
 
   public String getWeatherInfo() throws IOException {
