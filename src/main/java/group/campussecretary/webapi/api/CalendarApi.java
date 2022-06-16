@@ -36,7 +36,7 @@ public class CalendarApi {
 
   @SneakyThrows
   @ApiOperation("구글 캘린더 일정 조회")
-  @GetMapping("/")
+  @GetMapping
   public JSONObject getList(@RequestParam Integer maxCount){
 
     final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();

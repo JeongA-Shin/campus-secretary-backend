@@ -17,8 +17,6 @@ public class CalendarServiceTest {
 
   private ResourceLoader resourceLoader;
 
-
-
   @Test
   public void sandbox(){
 

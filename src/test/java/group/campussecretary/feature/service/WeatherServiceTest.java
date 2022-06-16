@@ -93,7 +93,7 @@ public class WeatherServiceTest {
 
     WeatherService service=new WeatherService();
     //사실상 로깅이 정상적으로 되는지 테스트. 로깅을 통해 결과가 잘 나옴을 확인
-    service.getWantedDayWeatherInfo("today");
+    service.getWantedDayWeatherInfo("tomorrow");
   }
 
 }
