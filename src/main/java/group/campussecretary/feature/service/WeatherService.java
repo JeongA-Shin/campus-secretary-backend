@@ -107,7 +107,6 @@ public class WeatherService{
     List<JSONObject> item = (List<JSONObject>) items.get("item");
     //log.debug(String.valueOf(item));
 
-
     //정말 반복말고는 답이 없나; >filter를 사용해보자!!
     /* 참고 코드
     List<JSONObject> list = arr.stream()
@@ -117,14 +116,17 @@ public class WeatherService{
     //응답 중에 오늘 날씨만 (오늘 날씨 예보) 만 가져오기
     List<JSONObject> todayList = item.stream().filter(jsonObject -> dateMap.get("today").equals(jsonObject.get("fcstDate"))).collect(
         Collectors.toList());
-    log.debug(String.valueOf(todayList));
+    //||dateMap.get("tomorrow").equals(jsonObject.get("fcstDate"))
+    //log.debug(String.valueOf(todayList));
 
-    //이제 일 최저 기온 구하기
-    List<JSONObject> minimumTemperatureJsonObject = todayList.stream().filter(jsonObject -> "TMN".equals(jsonObject.get("category"))).collect(
+    //이제 일 최저, 최고 기온 구하기
+    List<JSONObject> highAndLowTmp = todayList.stream().filter(jsonObject -> "TMN".equals(jsonObject.get("category"))||"TMX".equals(jsonObject.get("category"))).collect(
         Collectors.toList());
-    JSONObject objectTMN= minimumTemperatureJsonObject.get(0);
-    String minimumTemp = (String) objectTMN.get("fcstValue");
-    log.debug(String.valueOf(minimumTemp));
+   // log.debug(String.valueOf(highAndLowTmp));
+    //JSONObject objectTMN= minimumTemperatureJsonObject.get(0);
+//    String minimumTmp = (String) objectTMN.get("fcstValue");
+//    log.debug(String.valueOf(minimumTmp));
+
 
 
 
