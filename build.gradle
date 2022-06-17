@@ -30,6 +30,12 @@ dependencies {
     // Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. 에러가 나서 버전을 낮춰줌
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 
+    //querydsl
+    implementation 'com.querydsl:querydsl-jpa'
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+
     //swagger
     implementation 'io.springfox:springfox-swagger2:2.9.2'
     implementation 'io.springfox:springfox-swagger-ui:2.9.2'
