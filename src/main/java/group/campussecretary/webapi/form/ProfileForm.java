@@ -22,7 +22,7 @@ public class ProfileForm {
     public static class GetAll {
 
       @ApiModelProperty(value = "브리핑 시간")
-      private UUID profileId;
+      private String briefingTime;
 
     }
 
