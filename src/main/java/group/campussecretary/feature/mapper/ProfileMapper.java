@@ -5,9 +5,9 @@ import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 
 @Mapper(
-    componentModel = "spring",
-    implementationName = "ProfileMapperImpl",
-    builder = @Builder(disableBuilder = true)
+        implementationName = "ProfileMapperImpl",
+        builder=@Builder(disableBuilder = true),
+        componentModel = "spring"
 )
 public abstract class ProfileMapper {
 
