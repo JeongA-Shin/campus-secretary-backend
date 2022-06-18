@@ -2,11 +2,15 @@ package group.campussecretary.feature.service;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
-import group.campussecretary.feature.Repository.ProfileRepository;
 import group.campussecretary.feature.mapper.ProfileMapper;
 import group.campussecretary.feature.model.Profile;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+
+import group.campussecretary.feature.model.QProfile;
+import group.campussecretary.feature.repository.ProfileRepository;
+import group.campussecretary.webapi.form.ProfileForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,15 +47,15 @@ public class ProfileService {
     return repository.findAll(search, page);
   }
 
-//  /**
-//   * 조회
-//   *
-//   * @param id 식별번호
-//   * @return
-//   */
-//  public Profile get(UUID id){
-//    return repository.findOne(new BooleanBuilder())
-//  }
+  /**
+   * 조회
+   *
+   * @param id 식별번호
+   * @return
+   */
+  public Profile get(UUID id){
+    return repository.findOne(new BooleanBuilder(QProfile.profile.profileId.eq(id))).orElse(null);
+  }
 
   /**
    *  프로필 등록
@@ -82,6 +86,13 @@ public class ProfileService {
    */
   public void remove(UUID id){
     repository.deleteById(id);
+  }
+
+
+  public void parsingForMapping(ProfileForm.Input.GetAll in){
+
+    ProfileForm.Input.forMapping forMapping = new ProfileForm.Input.forMapping();
+
   }
 
 }

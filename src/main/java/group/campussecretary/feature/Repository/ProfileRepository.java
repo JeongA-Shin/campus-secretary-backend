@@ -1,4 +1,4 @@
-package group.campussecretary.feature.Repository;
+package group.campussecretary.feature.repository;
 
 import group.campussecretary.feature.model.Profile;
 import java.util.UUID;

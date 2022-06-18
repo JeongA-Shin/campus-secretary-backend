@@ -76,13 +76,13 @@ public class Profile {
    *  뉴스 키워드 리스트
    */
   @Column(name="news_keyword_list")
-  private String newsKeyWordList;
+  private String newsKeyWordList; ////코로나,경제
 
   /**
    * newsCount
    */
   @Column(name = "news_count")
-  private String newsCount; //코로나,경제
+  private String newsCount;
 
   /**
    * scheduleCount
