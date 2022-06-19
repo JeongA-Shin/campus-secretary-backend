@@ -89,14 +89,35 @@ public class ProfileService {
   }
 
 
-  public void parsingForMapping(ProfileForm.Input.GetAll in){
+  public ProfileForm.Input.forMapping parsingForMapping(ProfileForm.Input.Add in){
 
-    ProfileForm.Input.forMapping forMapping;
-
-
+    ProfileForm.Input.forMapping forMapping =new ProfileForm.Input.forMapping();
 
 
+    System.out.println(">>>>>>getContentList: "+in.getContentList());
+//    for(int i=0;i<in.getContentList().size();i++){
+//      if(in.getContentList().get(i)=="calendar"){
+//
+//      }
+//    }
 
+    List<String> contentList = in.getContentList();
+    if(contentList.contains("calendar")){
+      forMapping.setCalendar("Y");
+    }else if(contentList.contains("newsSearch")){
+      forMapping.setNewsSearch("Y");
+    }else if(contentList.contains("weather")){
+      forMapping.setWeather("Y");
+    }
+
+
+    //forMapping.setCalendar();
+
+    //add의 리스트로 입력받는 contentList를 파싱하여 컬럼별로 y,n을 줌
+    //리스트로 입력받는  newsKeyword를 스트링으로 변환해줘야 함
+
+
+    return forMapping;
 
   }
 

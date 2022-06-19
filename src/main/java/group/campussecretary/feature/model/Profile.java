@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.apache.commons.lang3.ObjectUtils;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
@@ -91,5 +92,20 @@ public class Profile {
   private String scheduleCount;
 
 
+
+  @PrePersist
+  //insert 전 defaultValue 설정
+  public void onPrePersist() {
+    this.defaultValue();
+  }
+
+  public void defaultValue(){
+    //public static <T> T defaultIfNull(final T object, final T defaultValue)
+    //final T object: The object to check for null.
+    //final T defaultValue: The default value to return.
+    calendar= ObjectUtils.defaultIfNull(getCalendar(), "N");
+    newsSearch=ObjectUtils.defaultIfNull(getNewsSearch(),"N");
+    weather=ObjectUtils.defaultIfNull(getWeather(),"N");
+  }
 
 }
