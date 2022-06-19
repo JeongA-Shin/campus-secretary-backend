@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+##info##
+!**/src/main/resources/login.json
