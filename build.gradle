@@ -19,12 +19,14 @@ repositories {
 }
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     //implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+
 
     // slf4j for logging - 원래는 alpha 어쩌고 버전을 사용했는데,
     // Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. 에러가 나서 버전을 낮춰줌
@@ -38,6 +40,11 @@ dependencies {
 
     //StringUtils
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+
+    //selenium
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.1.2'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '4.1.2'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: '4.1.2'
 
 
     //mapstruct
@@ -66,6 +73,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
+
+    testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.2'
+
 }
 
 tasks.named('test') {
