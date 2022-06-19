@@ -91,7 +91,12 @@ public class ProfileService {
 
   public void parsingForMapping(ProfileForm.Input.GetAll in){
 
-    ProfileForm.Input.forMapping forMapping = new ProfileForm.Input.forMapping();
+    ProfileForm.Input.forMapping forMapping;
+
+
+
+
+
 
   }
 
