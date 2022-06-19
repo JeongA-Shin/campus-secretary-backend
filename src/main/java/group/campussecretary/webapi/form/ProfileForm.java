@@ -37,7 +37,7 @@ public class ProfileForm {
     public static class Add {
 
       @ApiModelProperty(value = "브리핑 시간")
-      private UUID profileId;
+      private String briefingTime;
 
       //사용자로부터 입력은 리스트로 받고 컨트롤러에서 파싱하여 컬럼 별로 y,n을 준다
       @ApiModelProperty(value = "contentList")
@@ -67,7 +67,7 @@ public class ProfileForm {
     public static class Modify {
 
       @ApiModelProperty(value = "브리핑 시간")
-      private UUID profileId;
+      private String briefingTime;
 
       @ApiModelProperty(value = "contentList")
       private List<String> contentList;
@@ -97,7 +97,7 @@ public class ProfileForm {
     public static class forMapping{
 
       @ApiModelProperty(value = "브리핑 시간")
-      private UUID profileId;
+      private String briefingTime;
 
       @ApiModelProperty(value = "calendar")
       private String calendar;
@@ -133,8 +133,11 @@ public class ProfileForm {
     @AllArgsConstructor
     public static class GetAll{
 
-      @ApiModelProperty(value = "브리핑 시간")
+      @ApiModelProperty(value = "프로필 아이디")
       private UUID profileId;
+
+      @ApiModelProperty(value = "브리핑 시간")
+      private String briefingTime;
 
 //      @ApiModelProperty(value = "contentList")
 //      private List<String> contentList;

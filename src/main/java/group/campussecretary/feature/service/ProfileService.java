@@ -93,30 +93,36 @@ public class ProfileService {
 
     ProfileForm.Input.forMapping forMapping =new ProfileForm.Input.forMapping();
 
+    //add의 리스트로 입력받는 contentList를 파싱하여 컬럼별로 y,n을 줌
+    //리스트로 입력받는  newsKeyword를 스트링으로 변환해줘야 함
+    //왜냐면 입력폼과 실제 엔티티의 프로퍼티가 서로 다르기 때문임
 
-    System.out.println(">>>>>>getContentList: "+in.getContentList());
-//    for(int i=0;i<in.getContentList().size();i++){
-//      if(in.getContentList().get(i)=="calendar"){
-//
-//      }
-//    }
+
+    System.out.println(">>>>>>getContentList: "+in.getContentList().toString());
+
+    forMapping.setBriefingTime(in.getBriefingTime());
 
     List<String> contentList = in.getContentList();
     if(contentList.contains("calendar")){
       forMapping.setCalendar("Y");
-    }else if(contentList.contains("newsSearch")){
+    }
+    if(contentList.contains("newsSearch")){
       forMapping.setNewsSearch("Y");
-    }else if(contentList.contains("weather")){
+    }
+    if(contentList.contains("weather")){
       forMapping.setWeather("Y");
     }
 
+    forMapping.setCampusDay(in.getCampusDay());
 
-    //forMapping.setCalendar();
+    forMapping.setNewsKeyWordList(in.getNewsKeyWordList().toString());
 
-    //add의 리스트로 입력받는 contentList를 파싱하여 컬럼별로 y,n을 줌
-    //리스트로 입력받는  newsKeyword를 스트링으로 변환해줘야 함
+    forMapping.setNewsCount(in.getNewsCount());
+
+    forMapping.setScheduleCount(in.getScheduleCount());
 
 
+    System.out.println(">>>>> forMapping: "+forMapping.toString());
     return forMapping;
 
   }

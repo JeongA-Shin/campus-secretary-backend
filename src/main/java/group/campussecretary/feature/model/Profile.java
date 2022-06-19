@@ -30,7 +30,7 @@ public class Profile {
    */
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "profile_id", nullable = false)
+  @Column(name = "profile_id",columnDefinition = "BINARY(16)", nullable = false)
   private UUID profileId;
 
   /**

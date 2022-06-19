@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-18T16:51:22+0900",
+    date = "2022-06-19T23:27:48+0900",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.2 (Oracle Corporation)"
 )
 @Component
@@ -24,7 +24,7 @@ public class ProfileFormMapperImpl extends ProfileFormMapper {
 
         Profile profile = new Profile();
 
-        profile.setProfileId( in.getProfileId() );
+        profile.setBriefingTime( in.getBriefingTime() );
         profile.setCalendar( in.getCalendar() );
         profile.setNewsSearch( in.getNewsSearch() );
         profile.setWeather( in.getWeather() );
@@ -45,6 +45,7 @@ public class ProfileFormMapperImpl extends ProfileFormMapper {
         GetAll getAll = new GetAll();
 
         getAll.setProfileId( in.getProfileId() );
+        getAll.setBriefingTime( in.getBriefingTime() );
         getAll.setCalendar( in.getCalendar() );
         getAll.setNewsSearch( in.getNewsSearch() );
         getAll.setWeather( in.getWeather() );
