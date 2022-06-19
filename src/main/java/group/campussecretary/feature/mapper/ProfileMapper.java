@@ -11,7 +11,23 @@ import org.mapstruct.Mapper;
 )
 public abstract class ProfileMapper {
 
-  //기존의 객체를 수정할 내용으로 뒤집어 씌움
-  public abstract Profile toProfile(Profile modifiedProfile);
+  public Profile modify(Profile in, Profile out){
+
+    if(in == null){
+      return null;
+    }
+
+    out.setBriefingTime(in.getBriefingTime());
+    out.setCalendar(in.getCalendar());
+    out.setNewsSearch(in.getNewsSearch());
+    out.setWeather(in.getWeather());
+    out.setCampusDay(in.getCampusDay());
+    out.setNewsKeyWordList(in.getNewsKeyWordList());
+    out.setNewsCount(in.getNewsCount());
+    out.setScheduleCount(in.getScheduleCount());
+
+    return out;
+
+  }
 
 }

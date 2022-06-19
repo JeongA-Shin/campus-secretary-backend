@@ -12,6 +12,7 @@ import group.campussecretary.feature.model.QProfile;
 import group.campussecretary.feature.repository.ProfileRepository;
 import group.campussecretary.webapi.form.ProfileForm;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -77,7 +78,9 @@ public class ProfileService {
       return null;
     }
 
-    return mapper.toProfile(entity);
+    entity.setProfileId(id);
+
+    return mapper.modify(entity,get(entity.getProfileId()));
   }
 
   /**
@@ -112,6 +115,54 @@ public class ProfileService {
     if(contentList.contains("weather")){
       forMapping.setWeather("Y");
     }
+
+    forMapping.setCampusDay(in.getCampusDay());
+
+    forMapping.setNewsKeyWordList(in.getNewsKeyWordList().toString());
+
+    forMapping.setNewsCount(in.getNewsCount());
+
+    forMapping.setScheduleCount(in.getScheduleCount());
+
+
+    System.out.println(">>>>> forMapping: "+forMapping.toString());
+    return forMapping;
+
+  }
+
+
+  public ProfileForm.Input.forMapping parsingForMappingByModify(ProfileForm.Input.Modify in){
+
+    ProfileForm.Input.forMapping forMapping =new ProfileForm.Input.forMapping();
+
+    //add의 리스트로 입력받는 contentList를 파싱하여 컬럼별로 y,n을 줌
+    //리스트로 입력받는  newsKeyword를 스트링으로 변환해줘야 함
+    //왜냐면 입력폼과 실제 엔티티의 프로퍼티가 서로 다르기 때문임
+
+
+    System.out.println(">>>>>>getContentList: "+in.getContentList().toString());
+
+    forMapping.setBriefingTime(in.getBriefingTime());
+
+    List<String> contentList = in.getContentList();
+    if(contentList.contains("calendar")){
+      forMapping.setCalendar("Y");
+    }else{
+      forMapping.setCalendar("N");
+    }
+
+    if(contentList.contains("newsSearch")){
+      forMapping.setNewsSearch("Y");
+    }else{
+      forMapping.setNewsSearch("N");
+    }
+
+    if(contentList.contains("weather")){
+      forMapping.setWeather("Y");
+    }else{
+      forMapping.setWeather("N");
+    }
+
 
     forMapping.setCampusDay(in.getCampusDay());
 

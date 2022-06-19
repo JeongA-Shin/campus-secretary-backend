@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Api(value = "Profile", tags = {"Profile"})
 @RequestMapping(value = "/briefing/profile", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -55,5 +56,21 @@ public class ProfileApi {
         return formMapper.toGetAll(service.add(formMapper.toProfile(midEntity)));
     }
 
+    @SneakyThrows
+    @ApiOperation("기존 프로필 수정")
+    @PostMapping("/modify/{id}")
+    public ProfileForm.Output.GetAll modify(@PathVariable UUID id, @RequestBody ProfileForm.Input.Modify in){
+        //우선 modify 객체를 forMapping으로 바꿔줌
+        ProfileForm.Input.forMapping midEntity= service.parsingForMappingByModify(in);
+
+        return formMapper.toGetAll(service.modify(id, formMapper.toProfile(midEntity)));
+    }
+
+    @SneakyThrows
+    @ApiOperation("프로필 삭제")
+    @PostMapping("/remove/{id}")
+    public void remove(@PathVariable UUID id){
+        service.remove(id);
+    }
 
 }
