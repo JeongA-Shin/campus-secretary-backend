@@ -28,7 +28,7 @@ public class CampusService {
 
     private void setWebDriver(){
         String WEB_DRIVER_ID = "webdriver.chrome.driver";
-        String WEB_DRIVER_PATH = "C:\\Users\\intern2\\Desktop\\secretary\\campus-secretary-backend\\chromedriver.exe";
+        String WEB_DRIVER_PATH = "C:\\Users\\jeong\\OneDrive\\바탕 화면\\god-life\\campus-secretary\\chromedriver.exe";
 
         //1. webDriver 경로 설정
         System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
