@@ -34,7 +34,6 @@ public class CampusService {
         System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
 
         //2. WebDriver 옵션 설정
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--disable-popup-blocking");
@@ -53,7 +52,7 @@ public class CampusService {
 
         try{
             driver.get(url);
-            Thread.sleep(2000); // 3. 페이지 로딩 대기 시간
+            Thread.sleep(1000); // 3. 페이지 로딩 대기 시간
 
             ClassPathResource resource = new ClassPathResource("login.json");
             JSONObject json = (JSONObject) new JSONParser().parse(new InputStreamReader(resource.getInputStream(), "UTF-8"));
@@ -73,15 +72,13 @@ public class CampusService {
             Thread.sleep(1000);
 
             //내 강의실 들어가기 버튼 클릭
-            // //*[@id="visual"]/div/div[2]/div[2]/div[1]/a
             element= driver.findElement(By.xpath("//*[@id=\"visual\"]/div/div[2]/div[2]/div[1]/a"));
             element.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
-            //할 일 목록
+            //내 강의실에서 할 일 목록
             element= driver.findElement(By.xpath("//*[@id=\"right-side\"]/div[2]/div/span"));
-            //System.out.println(">>>>>>>>>>>>>getText: "+element.getText());
-            Thread.sleep(2000);
+           // Thread.sleep(1000);
 
             toDoList = element.getText();
 
@@ -90,7 +87,6 @@ public class CampusService {
         }finally{
             //브라우저 종료
             driver.close();
-
         }
 
         return toDoList;
