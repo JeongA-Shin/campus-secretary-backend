@@ -12,8 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.commons.lang3.ObjectUtils;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
+
 
 //
 @Entity
@@ -68,7 +67,7 @@ public class Profile {
   private String weather;
 
   /**
-   *  campusDay
+   *  브리핑 기능 중 캠퍼스 기능을 쓸지
    */
   @Column(name = "campus_day")
   private String campusDay;
