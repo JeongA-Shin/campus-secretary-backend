@@ -45,6 +45,13 @@ public class ProfileApi {
         return service.getPage(ProfileFormPredicate.search(in),page).map(formMapper::toGetAll);
     }
 
+    @SneakyThrows
+    @ApiOperation("프로필 상세 조회")
+    @GetMapping("/get/{id}")
+    public ProfileForm.Output.GetAll get(@PathVariable UUID id){
+        return formMapper.toGetAll(service.get(id));
+    }
+
 
     @SneakyThrows
     @ApiOperation("새로운 프로필 등록")
