@@ -26,7 +26,7 @@ public class SwaggerConfig {
         docket.apiInfo(apiInfo())
             .ignoredParameterTypes(Pageable.class) //@Pageable 의 파라미터 요구 필드를 없애기 위함
             .select() //ApiSelectBuilder를 반환 받아 사용할 수 있게 해줌
-            .apis(RequestHandlerSelectors.basePackage("group.campussecretary.webapi;"))// 이전과 달리 적용하고 싶은 특정 패키지 경로
+            .apis((RequestHandlerSelectors.any()))// 이전과 달리 적용하고 싶은 특정 패키지 경로
             // (나같은 경우는 wepapi 패키지 안에 있는 컨트롤러만 swagger로 확인하고 싶음)만 표시, 이러면 해당 패키지 하위에 있는 Controller 기준으로 만들어짐
             .paths(PathSelectors.any()) // URL 경로를 지정하여 해당 URL에 해당하는 요청만 Swagger API 문서로 만듭니다.(필수), 특정 apth만 필터링하여 문서화 함
             .build();
