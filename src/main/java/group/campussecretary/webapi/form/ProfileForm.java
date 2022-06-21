@@ -23,6 +23,9 @@ public class ProfileForm {
     @AllArgsConstructor
     public static class GetAll {
 
+      @ApiModelProperty(value = "프로필 아이디")
+      private UUID profileId;
+
       @ApiModelProperty(value = "브리핑 시간")
       private String briefingTime;
 
@@ -91,7 +94,7 @@ public class ProfileForm {
     @ToString
     @NoArgsConstructor
     @AllArgsConstructor
-    //현재 엔티티 양식과 add 및 modify property가 다르다. 따라서 매퍼( dto to entity) 가 정상적으로 매핑되지 않음 
+    //현재 엔티티 양식과 add 및 modify property가 다르다. 따라서 매퍼( dto to entity) 가 정상적으로 매핑되지 않음
     //-> 그래서 컨트롤러에서 파라미터로 들어온 add, modify 객체를 파싱해서 inputToProfile 객체로 바꿔주고
     // -> 매퍼(ProfileFormMapper)에서 진짜 profile 객체로 매핑해줌
     public static class forMapping{

@@ -16,9 +16,11 @@ public class ProfileFormPredicate {
         BooleanBuilder builder = new BooleanBuilder();
         QProfile qProfile  = QProfile.profile;
 
+        if(in.getProfileId()!=null){
+            builder.and(qProfile.profileId.eq(in.getProfileId()));
+        }
 
         if(StringUtils.isNotEmpty(in.getBriefingTime())){
-
             builder.and(qProfile.briefingTime.eq(in.getBriefingTime()));
         }
 
