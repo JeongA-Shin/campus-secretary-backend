@@ -57,7 +57,10 @@ public class BriefingApi {
     }
 
 
-    List<JSONObject> briefing = new ArrayList<>();
+
+    //TO-D0 : 리스트가 아니라 그냥 JSON 자체로만 반환하는 게 어떰?  뉴스 서치가 애초에 리스트로 반환되어야 해서 막힌 거니까
+    // BriefingTest 코드와 https://ktko.tistory.com/entry/JAVA%EC%97%90%EC%84%9C-JSON-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%8C%EB%93%A4%EA%B8%B0 참조
+   List<JSONObject> briefing = new ArrayList<>();
     briefing.add(calendar);
     briefing.add(campus);
     briefing.add(newsSearch);
