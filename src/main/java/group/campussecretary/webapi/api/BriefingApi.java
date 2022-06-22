@@ -40,7 +40,7 @@ public class BriefingApi {
     JSONObject weather = null;
 
     if(profile.getCalendar()=="Y"){
-      calendar = calendarApi.getList(Integer.parseInt(profile.getNewsCount()));
+      calendar = calendarApi.getList(Integer.parseInt(profile.getScheduleCount()));
     }
 
     if(profile.getCampusDay()=="Y"){

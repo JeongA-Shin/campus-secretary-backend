@@ -52,8 +52,6 @@ public class NewsSearchApi {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(responseBody);
 
-
-        //return responseBody;
         return jsonObject;
     }
 
