@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-//DB에서 username으로 해당 객체 찾기 - 조회
+//DB에서 username으로 해당 객체를 찾는 기능을 하는 서비스라고 생각하면 됨
+//그냥 쉽게 서비스 하나를 구현하되, Spring Security에서는 UserDetailsService를 구현해야 한다고 생각하면 됨
 public class UserDetailsServiceImpl implements UserDetailsService {
 
   private final MemberRepository memberRepository;
