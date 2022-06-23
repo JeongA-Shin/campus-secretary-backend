@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class LoginService {
 
-  private final MemberRepository memberRepository;
-  private final PasswordEncoder passwordEncoder;
+  //private final MemberRepository memberRepository;
+ // private final PasswordEncoder passwordEncoder;
   private final AuthenticationManager authenticationManager;
 
   public String login(MemberForm.Input.Login req){
