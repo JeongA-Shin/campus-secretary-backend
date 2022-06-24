@@ -56,7 +56,7 @@ public class CampusService {
 
             ClassPathResource resource = new ClassPathResource("login.json");
             JSONObject json = (JSONObject) new JSONParser().parse(new InputStreamReader(resource.getInputStream(), "UTF-8"));
-            System.out.println(">>>>>>>> "+json.toString());
+            //System.out.println(">>>>>>>> "+json.toString());
 
             //id입력
             WebElement element=driver.findElement(By.name("login_user_id"));

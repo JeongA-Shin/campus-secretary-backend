@@ -3,10 +3,12 @@ package group.campussecretary.webapi.api;
 import group.campussecretary.feature.service.NewsSearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import java.io.InputStreamReader;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +31,11 @@ public class NewsSearchApi {
     public JSONObject getList(@RequestParam String query, @RequestParam Integer display){
         //네이버 공식 문서 참고 : query는 검색어, display는 검색 결과를 몇 개 받을 것인지
 
-        String clientId = "VGzIxWXaUExf9pIPETeU"; //애플리케이션 클라이언트 아이디값"
-        String clientSecret = "pXyQxd6MBh"; //애플리케이션 클라이언트 시크릿값"
+        ClassPathResource resource = new ClassPathResource("client.json");
+        JSONObject json = (JSONObject) new JSONParser().parse(new InputStreamReader(resource.getInputStream(), "UTF-8"));
+
+        String clientId = json.get("clientId").toString(); //애플리케이션 클라이언트 아이디값"
+        String clientSecret = json.get("clientSecret").toString(); //애플리케이션 클라이언트 시크릿값"
 
         String keyWord=null;//디폴트는 null
         try{
