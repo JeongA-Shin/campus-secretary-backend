@@ -23,6 +23,7 @@ public class SwaggerConfig {
         //docket : 구성을 위한 여러가지 기본값과 편리한 방법을 제공함
         //.select()로 ApiSelectBuilder를 반환 받아 사용할 수 있게 해줌
         Docket docket = new Docket(DocumentationType.SWAGGER_2);
+        //  docket.useDefaultResponseMessages(false); - 확인해보기
         docket.apiInfo(apiInfo())
             .ignoredParameterTypes(Pageable.class) //@Pageable 의 파라미터 요구 필드를 없애기 위함
             .select() //ApiSelectBuilder를 반환 받아 사용할 수 있게 해줌
@@ -54,6 +55,14 @@ public class SwaggerConfig {
     }
 
     // 완료가 되었으면 오른쪽 URL 로 접속 => http://localhost:8080/swagger-ui.html
+
+//    /**
+//     * Swagger UI Model 버그수정
+//     */
+//    @Bean
+//    public DefaultTypeNameProviderFixer defaultTypeNameProviderFixer() {
+//        return new DefaultTypeNameProviderFixer();
+//    }
 }
 
 //@Configuration
