@@ -38,12 +38,6 @@ public class ProfileApi {
     @GetMapping("/get-list")
     public List<ProfileForm.Output.GetAll> getList(ProfileForm.Input.GetAll in){
 
-//        Login loginForm=Login.builder()
-//                .password("1234")
-//                    .username("test")
-//                        .build();
-//        loginService.login(loginForm);
-
         return formMapper.toGetAllList(service.getList(ProfileFormPredicate.search(in)));
 
     }
