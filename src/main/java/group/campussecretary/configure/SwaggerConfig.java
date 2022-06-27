@@ -34,6 +34,8 @@ public class SwaggerConfig {
 
         int tagOrd = 0;
         docket.tags(
+            new Tag("Auth", "로그인 API", ++tagOrd),
+            new Tag("Admin", "관리자 API", ++tagOrd),
             new Tag("Profile", "프로필 관리 API", ++tagOrd),
             new Tag("Weather", "날씨 예보 API", ++tagOrd),
             new Tag("NewsSearch", "뉴스 검색 API", ++tagOrd),

@@ -1,7 +1,9 @@
 package group.campussecretary.webapi.api.security;
 
+import group.campussecretary.feature.model.Member;
 import group.campussecretary.feature.service.security.LoginService;
 import group.campussecretary.feature.service.security.SignUpService;
+import group.campussecretary.feature.service.security.UserDetailsServiceImpl;
 import group.campussecretary.webapi.form.security.MemberForm;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthApi {
 
+//  private final UserDetailsServiceImpl userDetailsService;
   private final LoginService loginService;
   private final SignUpService signUpService;
 
@@ -29,7 +32,9 @@ public class AuthApi {
   public JSONObject login(@RequestBody MemberForm.Input.Login in){
 
     JSONObject res = new JSONObject();
-    res.put("username", loginService.login(in));
+    String member = loginService.login(in);
+    res.put("username", member);
+    //res.put("username", loginService.login(in));
 
     return res;
   }

@@ -9,9 +9,12 @@ import java.util.Set;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -75,13 +78,19 @@ public class Member implements UserDetails {
     this.password = passwordEncoder.encode(password);
   }
 
+  @PrePersist
+  public void setRole(){
+    this.roles = "ROLE_USER";
+  }
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
 
     Set<GrantedAuthority> authorities= new HashSet<>();
-    for (String role : roles.split(",")) {
-      authorities.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
-    }
+    authorities.add(new SimpleGrantedAuthority(this.roles));
+//    for (String role : roles.split(",")) {
+//      authorities.add(new SimpleGrantedAuthority(ROLE_PREFIX + role));
+//    }
     return authorities;
   }
 

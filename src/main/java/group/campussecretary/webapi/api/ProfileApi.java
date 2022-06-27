@@ -2,7 +2,9 @@ package group.campussecretary.webapi.api;
 
 
 import group.campussecretary.feature.service.ProfileService;
+import group.campussecretary.feature.service.security.LoginService;
 import group.campussecretary.webapi.form.ProfileForm;
+import group.campussecretary.webapi.form.security.MemberForm.Input.Login;
 import group.campussecretary.webapi.mapper.ProfileFormMapper;
 import group.campussecretary.webapi.predicate.ProfileFormPredicate;
 import io.swagger.annotations.Api;
@@ -28,11 +30,19 @@ public class ProfileApi {
 
     private final ProfileService service;
 
+    private final LoginService loginService;
+
 
     @SneakyThrows
     @ApiOperation("전체 프로필 목록 조회")
     @GetMapping("/get-list")
     public List<ProfileForm.Output.GetAll> getList(ProfileForm.Input.GetAll in){
+
+//        Login loginForm=Login.builder()
+//                .password("1234")
+//                    .username("test")
+//                        .build();
+//        loginService.login(loginForm);
 
         return formMapper.toGetAllList(service.getList(ProfileFormPredicate.search(in)));
 
