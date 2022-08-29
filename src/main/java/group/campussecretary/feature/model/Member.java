@@ -42,7 +42,7 @@ public class Member implements UserDetails {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "member_id",columnDefinition = "BINARY(16)", nullable = false)
+  @Column(name = "member_id", nullable = false)
   private UUID memberId;
 
   /**
